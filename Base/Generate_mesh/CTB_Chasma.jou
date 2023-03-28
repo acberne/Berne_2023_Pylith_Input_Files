@@ -1,0 +1,935 @@
+reset
+set journal on
+##Creat Thin Shell with curve marking fault
+
+
+##Next Create the geometry
+
+
+
+
+create sphere radius {Outer} inner radius {Inner}
+
+
+#Create a curve (here I created the curve at the south pole, using points converted to cartesian coordinates in Jupyter, This is a 100000 outer radius 90000 inner radius sphere
+
+##First need to imprint curves on the sphere
+##First					
+create vertex x	-68482.5293	y	-23188.25984	z	-265325.1737
+${pBegin=Id('vertex')}					
+create vertex x	-47186.41477	y	-28285.84735	z	-269440.8156
+create vertex x	-31696.94912	y	-31285.77771	z	-271369.6806
+create vertex x	-15335.67018	y	-39228.12842	z	-271755.3517
+create vertex x	-4724.105934	y	-43951.73506	z	-271423.8895
+create vertex x	7301.252648	y	-56660.95468	z	-269000.4237
+create vertex x	18845.96923	y	-66949.98353	z	-266059.2587
+create vertex x	30523.30528	y	-77622.8498	z	-262045.8376
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	-51050.61275	y	-17285.7937	z	-197787.8567
+${pBegin=Id('vertex')}					
+create vertex x	-35175.32737	y	-21085.81348	z	-200855.8807
+create vertex x	-23628.6348	y	-23322.1252	z	-202293.7619
+create vertex x	-11432.04504	y	-29242.78664	z	-202581.2622
+create vertex x	-3521.606242	y	-32764.02068	z	-202334.1722
+create vertex x	5442.751974	y	-42238.16622	z	-200527.5885
+create vertex x	14048.81343	y	-49908.16954	z	-198335.0838
+create vertex x	22753.73666	y	-57864.30621	z	-195343.2608
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}					
+					
+					
+					
+					
+					
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth}					
+${volume2=Id('volume')}					
+					
+					
+#sweep surface 7 perpendicular distance 15000 switchside					
+					
+chop volume 1 with volume 2					
+					
+					
+delete curve {curve1} {curve2}					
+					
+					
+					
+merge volume all					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+##Second					
+					
+					
+					
+					
+					
+create vertex x	-52865.2548	y	40236.93253	z	-266854.3687
+${pBegin=Id('vertex')}					
+create vertex x	-41014.1946	y	29532.00626	z	-270315.9197
+create vertex x	-30576.36211	y	17401.81092	z	-272740.285
+create vertex x	-19041.91429	y	6108.181622	z	-274271.9373
+create vertex x	-1786.11615	y	-3615.130854	z	-274970.4359
+create vertex x	10729.00752	y	-14196.83826	z	-274423.6473
+create vertex x	22326.66814	y	-28167.67318	z	-272640.9765
+create vertex x	36907.02267	y	-44098.67889	z	-268920.3938
+create vertex x	47649.4412	y	-57640.0685	z	-264635.8881
+create vertex x	61168.74501	y	-65384.64008	z	-260015.8331
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	-39408.64448	y	29994.80425	z	-198927.8021
+${pBegin=Id('vertex')}					
+create vertex x	-30574.21779	y	22014.7683	z	-201508.2311
+create vertex x	-22793.28812	y	12972.25905	z	-203315.4852
+create vertex x	-14194.88156	y	4553.371755	z	-204457.2624
+create vertex x	-1331.468403	y	-2694.915728	z	-204977.9613
+create vertex x	7997.987425	y	-10583.09761	z	-204570.3552
+create vertex x	16643.51625	y	-20997.72	z	-203241.4552
+create vertex x	27512.50781	y	-32873.56063	z	-200467.9299
+create vertex x	35520.49253	y	-42968.05106	z	-197274.0257
+create vertex x	45598.51901	y	-48741.27715	z	-193829.9847
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}					
+					
+					
+					
+					
+					
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth}					
+${volume2=Id('volume')}					
+					
+					
+#sweep surface 7 perpendicular distance 15000 switchside					
+					
+chop volume 4 with volume 5					
+					
+					
+delete curve {curve1} {curve2}					
+					
+					
+					
+merge volume all					
+					
+					
+					
+					
+##Third					
+					
+					
+create vertex x	-16512.12306	y	52823.48503	z	-269373.4011
+${pBegin=Id('vertex')}					
+create vertex x	-857.9733635	y	41019.01841	z	-271922.2389
+create vertex x	10513.20921	y	28693.91487	z	-273296.7832
+create vertex x	26773.94443	y	21018.82523	z	-272885.2596
+create vertex x	42028.99837	y	10234.56913	z	-271576.5397
+create vertex x	58717.61843	y	-911.7516658	z	-268656.6768
+create vertex x	70123.78426	y	-7079.333758	z	-265814.8565
+create vertex x	81261.65657	y	-4123.170767	z	-262687.1573
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	-12309.03719	y	39377.50702	z	-200805.6263
+${pBegin=Id('vertex')}					
+create vertex x	-639.5801437	y	30577.81372	z	-202705.669
+create vertex x	7837.119592	y	21390.00927	z	-203730.3293
+create vertex x	19958.75857	y	15668.57881	z	-203423.5571
+create vertex x	31330.70788	y	7629.406076	z	-202447.9659
+create vertex x	43771.31556	y	-679.6694236	z	-200271.3409
+create vertex x	52274.09372	y	-5277.321528	z	-198152.893
+create vertex x	60576.87126	y	-3073.63639	z	-195821.3355
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}					
+					
+					
+					
+					
+					
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth}					
+${volume2=Id('volume')}					
+					
+					
+#sweep surface 7 perpendicular distance 15000 switchside					
+					
+chop volume 7 with volume 8					
+					
+					
+delete curve {curve1} {curve2}					
+					
+					
+					
+merge volume all					
+					
+					
+					
+					
+					
+					
+					
+					
+##Fourth					
+					
+					
+create vertex x	2325.422028	y	93034.15771	z	-258774.4924
+${pBegin=Id('vertex')}					
+create vertex x	16677.53402	y	77037.93003	z	-263461.6048
+create vertex x	32286.31383	y	59655.86763	z	-266502.8544
+create vertex x	43151.69183	y	45364.86526	z	-267777.8193
+create vertex x	53191.24146	y	36220.00604	z	-267364.5507
+create vertex x	68250.44796	y	26535.77716	z	-265071.177
+create vertex x	82401.39083	y	19822.13908	z	-261614.3987
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	1733.496421	y	69352.73575	z	-192904.6216
+${pBegin=Id('vertex')}					
+create vertex x	12432.34354	y	57428.27511	z	-196398.6508
+create vertex x	24067.9794	y	44470.73769	z	-198665.7642
+create vertex x	32167.62482	y	33817.44501	z	-199616.1925
+create vertex x	39651.65273	y	27000.36814	z	-199308.1196
+create vertex x	50877.60666	y	19781.2157	z	-197598.5138
+create vertex x	61426.49135	y	14776.50368	z	-195021.6426
+					
+					
+			
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}					
+					
+					
+					
+					
+					
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth} 					
+${volume2=Id('volume')}					
+					
+					
+#sweep surface 7 perpendicular distance 15000 					
+					
+chop volume 10 with volume 11					
+					
+					
+delete curve {curve1} {curve2}					
+					
+					
+					
+merge volume all					
+
+
+
+
+
+#######Fault 5
+
+				
+create vertex x	158326.771	y	71447.65227	z	-213196.779
+${pBegin=Id('vertex')}					
+create vertex x	172317.8757	y	57967.49708	z	-206328.1828
+create vertex x	168720.8285	y	40179.95596	z	-213410.0587
+create vertex x	158690.5652	y	16349.58828	z	-223997.7577
+create vertex x	151038.8171	y	-12972.50574	z	-229442.7812
+create vertex x	147100.0635	y	-56909.94055	z	-225272.7902
+create vertex x	123499.1805	y	-91416.86152	z	-228069.967
+create vertex x	112871.5198	y	-128919.9727	z	-215092.2143
+create vertex x	97464.63038	y	-160560.9189	z	-200862.7321
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	118025.4111	y	53260.97715	z	-158928.508
+${pBegin=Id('vertex')}					
+create vertex x	128455.1437	y	43212.13419	z	-153808.2817
+create vertex x	125773.7085	y	29952.33081	z	-159087.4983
+create vertex x	118296.6032	y	12187.8749	z	-166980.1467
+create vertex x	112592.5727	y	-9670.413372	z	-171039.1641
+create vertex x	109656.411	y	-42423.77387	z	-167930.6254
+create vertex x	92063.02546	y	-68147.11495	z	-170015.7936
+create vertex x	84140.5875	y	-96103.97966	z	-160341.4688
+create vertex x	72655.45174	y	-119690.8668	z	-149734.0366				
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}					
+					
+sweep surface {surface} vector -1.0 0.0 0.0 distance {FaultWidth} 
+
+chop volume 13 with volume 14					
+					
+					
+delete curve {curve1} {curve2}					
+					
+merge volume all
+
+
+
+#######Fault 6
+
+				
+create vertex x	97464.63038	y	-161560.9189	z	-200862.7321
+${pBegin=Id('vertex')}					
+create vertex x	69410.10455	y	-174619.4663	z	-200786.6514
+create vertex x	39574.9494	y	-177597.13	z	-206199.1339
+create vertex x	17612.9974	y	-168473.9182	z	-216636.3802
+create vertex x	1556.965608	y	-168579.6758	z	-217263.5928
+create vertex x	-30591.9982	y	-182709.9689	z	-203239.2603
+create vertex x	-48891.99537	y	-175489.3539	z	-206004.9987
+create vertex x	-67151.23024	y	-157576.1399	z	-215140.5876
+create vertex x	-91150.85094	y	-138816.1867	z	-219195.3209
+create vertex x	-123994.0683	y	-129984.9534	z	-208217.1533
+
+
+
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	72655.45174	y	-120690.8668	z	-149734.0366
+${pBegin=Id('vertex')}					
+create vertex x	51742.07793	y	-130170.8749	z	-149677.322
+create vertex x	29501.32592	y	-132390.5878	z	-153712.0816
+create vertex x	13129.68897	y	-125589.6481	z	-161492.5743
+create vertex x	1160.64709	y	-125668.4856	z	-161960.1328
+create vertex x	-22804.94411	y	-136201.9768	z	-151505.6304
+create vertex x	-36446.76019	y	-130819.3365	z	-153567.3626
+create vertex x	-50058.18982	y	-117465.8497	z	-160377.5289
+create vertex x	-67948.81616	y	-103481.1573	z	-163400.1483
+create vertex x	-92431.9418	y	-96897.87433	z	-155216.4234
+
+
+				
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}	
+
+sweep surface {surface} vector 0.0 -1.0 0.0 distance {FaultWidth} 
+
+chop volume 16 with volume 17					
+					
+					
+delete curve {curve1} {curve2}					
+					
+merge volume all				
+				
+
+
+
+#######Fault 7
+
+				
+create vertex x	-123994.0683	y	-129984.9534	z	-208217.1533
+${pBegin=Id('vertex')}					
+create vertex x	-156892.9601	y	-107290.1968	z	-198742.0759
+create vertex x	-149936.4882	y	-78885.51016	z	-216612.8477
+create vertex x	-156177.4977	y	-55180.51404	z	-219519.2476
+create vertex x	-171266.2635	y	-40682.88987	z	-211276.5237
+create vertex x	-173335.5029	y	-13056.28679	z	-213094.6663
+create vertex x	-162109.6828	y	34464.45521	z	-219448.518
+create vertex x	-140688.3561	y	67198.75712	z	-226530.6017
+create vertex x	-114920.0882	y	85780.6213	z	-234648.7979
+create vertex x	-107582.35	y	114839.1553	z	-225528.2829
+create vertex x	-87486.07238	y	141856.9903	z	-218741.3574
+create vertex x	-59851.91581	y	150281.6	z	-222391.9713
+
+
+
+
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	-92431.9418	y	-96897.87433	z	-155216.4234
+${pBegin=Id('vertex')}					
+create vertex x	-116956.5702	y	-79979.96488	z	-148153.1839
+create vertex x	-111770.8366	y	-58805.56212	z	-161475.0319
+create vertex x	-116423.2256	y	-41134.56501	z	-163641.621
+create vertex x	-127671.2146	y	-30327.24517	z	-157497.0449
+create vertex x	-129213.7385	y	-9732.868336	z	-158852.3876
+create vertex x	-120845.3999	y	25691.68479	z	-163588.8952
+create vertex x	-104876.7745	y	50093.61894	z	-168868.2667
+create vertex x	-85667.7021	y	63945.55406	z	-174920.013
+create vertex x	-80197.75184	y	85607.37028	z	-168121.0836
+create vertex x	-65216.89032	y	105747.9382	z	-163061.7392
+create vertex x	-44616.88269	y	112028.1018	z	-165783.1059
+
+
+
+
+
+				
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}	
+
+sweep surface {surface} vector -1.0 0.0 0.0 distance {FaultWidth} 
+
+chop volume 19 with volume 20					
+					
+					
+delete curve {curve1} {curve2}					
+					
+merge volume all
+
+
+
+
+#######Fault 8
+
+				
+create vertex x	-59851.91581	y	150281.6	z	-222391.9713
+${pBegin=Id('vertex')}					
+create vertex x	-34019.5916	y	151246.9625	z	-227138.7763
+create vertex x	-9249.344547	y	165476.6754	z	-219446.849
+create vertex x	22244.63196	y	167742.1452	z	-216778.1102
+create vertex x	51177.41558	y	171154.877	z	-209073.8631
+create vertex x	80675.2655	y	145730.7199	z	-218812.8397
+create vertex x	106412.2505	y	121883.5459	z	-222364.1927
+create vertex x	131762.9951	y	110822.4191	z	-214433.9165
+create vertex x	148892.6868	y	89579.63251	z	-213146.5628
+create vertex x	158326.771	y	71447.65227	z	-213196.779
+
+
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	-44616.88269	y	112028.1018	z	-165783.1059
+${pBegin=Id('vertex')}					
+create vertex x	-25360.0592	y	112747.7357	z	-169321.6333
+create vertex x	-6894.965935	y	123355.3398	z	-163587.6511
+create vertex x	16582.362	y	125044.1446	z	-161598.2276
+create vertex x	38150.43707	y	127588.181	z	-155855.0616
+create vertex x	60139.74337	y	108635.6275	z	-163115.026
+create vertex x	79325.49583	y	90858.64331	z	-165762.3982
+create vertex x	98223.32359	y	82613.07606	z	-159850.7378
+create vertex x	110992.7302	y	66777.54424	z	-158891.0741
+create vertex x	118025.4111	y	53260.97715	z	-158928.508
+
+			
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}	
+
+sweep surface {surface} vector 0.0 1.0 0.0 distance {FaultWidth} 
+
+chop volume 22 with volume 23					
+					
+					
+delete curve {curve1} {curve2}					
+					
+merge volume all	
+
+
+
+
+
+#######Fault 9
+
+				
+create vertex x	98612.75597	y	-161590.6196	z	-199471.7925
+${pBegin=Id('vertex')}					
+create vertex x	126169.2924	y	-204955.8876	z	-133039.0687
+create vertex x	139675.3169	y	-215862.0376	z	-97567.34383
+create vertex x	148813.866	y	-215117.983	z	-84874.53505
+create vertex x	168938.7287	y	-216736.3066	z	10491.87167
+create vertex x	178502.5042	y	-197459.7243	z	69076.14109
+create vertex x	160158.5921	y	-149468.3367	z	166233.0945
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	73511.32718	y	-120458.4619	z	-148697.1544
+${pBegin=Id('vertex')}					
+create vertex x	94053.47252	y	-152785.298	z	-99174.57851
+create vertex x	104121.5999	y	-160915.3371	z	-72732.01995
+create vertex x	110933.9728	y	-160360.6782	z	-63270.10795
+create vertex x	125936.1432	y	-161567.0649	z	7821.213427
+create vertex x	133065.5031	y	-147197.2491	z	51493.12336
+create vertex x	119390.9504	y	-111421.851	z	123919.2159
+
+
+			
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}	
+
+sweep surface {surface} vector 0.0 1.0 0.0 distance {FaultWidth} 
+
+chop volume 25 with volume 26					
+					
+					
+delete curve {curve1} {curve2}					
+					
+merge volume all	
+
+
+
+
+#######Fault 10
+
+create vertex x	-39093.16676	y	-187205.8277	z	-197612.5056
+${pBegin=Id('vertex')}					
+create vertex x	-69350.20512	y	-230874.3358	z	-132335.1432
+create vertex x	-70798.57662	y	-247308.6528	z	-97216.21155
+create vertex x	-59832.72393	y	-257511.4433	z	-75715.92771
+create vertex x	-67495.60784	y	-263878.3951	z	-37914.84552
+create vertex x	-81625.42457	y	-262379.2047	z	10928.99914
+create vertex x	-114639.8947	y	-246910.5717	z	38959.77574
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	-29142.17886	y	-139553.4352	z	-147311.1406
+${pBegin=Id('vertex')}					
+create vertex x	-51697.42564	y	-172106.323	z	-98649.83401
+create vertex x	-52777.12075	y	-184357.3594	z	-72470.26679
+create vertex x	-44602.57602	y	-191963.0759	z	-56442.78247
+create vertex x	-50314.90766	y	-196709.3491	z	-28263.79393
+create vertex x	-60848.04377	y	-195591.7708	z	8147.072086
+create vertex x	-85458.83063	y	-184060.608	z	29042.74192
+
+			
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}	
+
+sweep surface {surface} vector 1.0 0.0 0.0 distance {FaultWidth} 
+
+chop volume 28 with volume 29					
+					
+					
+delete curve {curve1} {curve2}					
+					
+merge volume all
+
+
+
+#######Fault 11
+
+create vertex x	-160054.0998	y	-110371.6286	z	-194488.5312
+${pBegin=Id('vertex')}					
+create vertex x	-178323.3988	y	-105060.2581	z	-181074.8675
+create vertex x	-189822.1252	y	-111981.6051	z	-164476.992
+create vertex x	-220486.2651	y	-124983.0624	z	-106724.135
+create vertex x	-249161.2312	y	-106917.4059	z	-45960.30016
+create vertex x	-251927.4735	y	-109765.1397	z	-10448.07284
+create vertex x	-245092.9579	y	-118285.2949	z	39535.18701
+create vertex x	-224439.2368	y	-127635.1547	z	94664.12339
+create vertex x	-190751.6712	y	-117839.3883	z	159225.2445
+					
+					
+					
+					
+${pEnd=Id('vertex')}					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve1=Id('curve')}					
+					
+create vertex x	-119313.0562	y	-82277.03221	z	-144982.3596
+${pBegin=Id('vertex')}					
+create vertex x	-132931.9882	y	-78317.64693	z	-134983.083
+create vertex x	-141503.7661	y	-83477.19655	z	-122610.1213
+create vertex x	-164362.4886	y	-93169.19198	z	-79557.99156
+create vertex x	-185738.3723	y	-79702.0662	z	-34261.31466
+create vertex x	-187800.4802	y	-81824.92233	z	-7788.563391
+create vertex x	-182705.6595	y	-88176.31074	z	29471.68487
+create vertex x	-167309.2493	y	-95146.20626	z	70567.80107
+create vertex x	-142196.7004	y	-87843.90766	z	118695.1822
+
+
+					
+${pEnd=Id('vertex')}					
+					
+					
+					
+create curve spline vertex {pBegin} to {pEnd} delete					
+${curve2=Id('curve')}					
+create surface skin curve {curve1} {curve2}					
+${surface=Id('surface')}	
+
+sweep surface {surface} vector 0.0 1.0 0.0 distance {FaultWidth} 
+
+chop volume 31 with volume 32					
+					
+					
+delete curve {curve1} {curve2}					
+					
+merge volume all		
+
+
+
+
+
+{Units('si')} 
+
+#Uniform resolution tetmesh.
+set tetmesher HPC off
+Trimesher geometry sizing off
+surface all scheme trimesh geometry approximation angle 4 minimum size {size*km}
+volume all scheme tetmesh
+volume all size {size*km}
+mesh surface all
+mesh volume all
+
+
+nodeset 1 add surface 12
+nodeset 1 name "Fault_1"
+
+nodeset 2 add surface 28
+nodeset 2 name "Fault_2"
+
+nodeset 3 add node all
+nodeset 3 name "All_nodes"
+
+
+nodeset 4 add surface 14 32 68 49 199
+nodeset 4 name "Outer_Surf"
+
+nodeset 5 add surface 13 31 50 67 200
+nodeset 5 name "Inner_Surf"
+
+
+nodeset 6 add curve 18 23
+nodeset 6 name "Fault_1_edge"
+
+nodeset 7 add curve 54 58
+nodeset 7 name "Fault_2_edge"
+
+nodeset 8 add curve 94 99
+nodeset 8 name "Fault_3_edge"
+
+nodeset 9 add curve 130 134
+nodeset 9 name "Fault_4_edge"
+
+nodeset 10 add surface 48
+nodeset 10 name "Fault_3"
+
+nodeset 11 add surface 64
+nodeset 11 name "Fault_4"
+
+
+# save all
+#imprint all with volume all
+#merge all
+
+
+#nodeset 1 add surface 17 18
+#nodeset 1 name Outer
+export mesh "/home/aberne/CUBIT/Coreform-Cubit-2021.11/bin/Basic_Sphere_base.exo"  overwrite
+export mesh "/home/aberne/CUBIT/Coreform-Cubit-2021.11/bin/Basic_Sphere_Dyn.exo"  overwrite
+
+block 13 volume all
+export mesh "/home/aberne/CUBIT/Coreform-Cubit-2021.11/bin/sizing.exo" dimension 3 block 13 overwrite
+	

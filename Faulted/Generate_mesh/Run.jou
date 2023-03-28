@@ -1,0 +1,185 @@
+reset	
+set journal on	
+${Outer=251999.99999999977} #Edit Outer Radius as Desired
+${Inner=226999.99999999977} #Edit Inner Radius as Desired
+${size=5.0}
+${FaultWidth=1000.0}
+create sphere radius {Outer} inner radius {Inner}
+create vertex x -67737.30762608962	y	-22927.813688741982	z	-262430.8909313511
+${pBegin=Id('vertex')}
+create vertex x -46674.27740433551	y	-27971.609954642394	z	-266501.59636544087
+create vertex x -31354.442308871094	y	-30940.195274295318	z	-268409.3948875263
+create vertex x -15173.342126458243	y	-38797.5134327246	z	-268790.8529696479
+create vertex x -4678.70124837374	y	-43470.92247975345	z	-268463.01170438284
+create vertex x 7213.11277698858	y	-56043.264077406784	z	-266066.0135297561
+create vertex x 18629.97082472801	y	-66221.88204257545	z	-263156.9617658041
+create vertex x 30177.994740628546	y	-76780.23551123028	z	-259187.35321823574
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve1=Id('curve')}
+create vertex x -51550.0833772079	y	-17448.74056459408	z	-199717.62655437377
+${pBegin=Id('vertex')}
+create vertex x -35520.49787756414	y	-21287.217869893284	z	-202815.55311634648
+create vertex x -23861.65278653057	y	-23546.398609482094	z	-204267.44390337475
+create vertex x -11547.359633003145	y	-29526.048825639664	z	-204557.74472322463
+create vertex x -3560.6292588726615	y	-33082.650563635885	z	-204308.24787796778
+create vertex x 5489.390973664101	y	-42650.57229420294	z	-202484.06176713054
+create vertex x 14177.955737936385	y	-50396.79993681292	z	-200270.18781441703
+create vertex x 22966.341585698927	y	-58432.017466267134	z	-197249.19895652492
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve2=Id('curve')}	
+create surface skin curve {curve1} {curve2}	
+${surface=Id('surface')}	
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth}
+${volume2=Id('volume')}	
+chop volume 1 with volume 2
+delete curve {curve1} {curve2}	
+merge volume all	
+create vertex x -52284.95695516084	y	39801.62865281139	z	-263943.3909624951
+${pBegin=Id('vertex')}
+create vertex x -40563.94647326677	y	29212.61309593446	z	-267367.1436108429
+create vertex x -30240.805452733894	y	17214.09233403452	z	-269765.0249952449
+create vertex x -18832.984686139665	y	6042.984281013331	z	-271279.9311205879
+create vertex x -1766.7842223548284	y	-3574.8162226715126	z	-271970.7689485869
+create vertex x 10609.206523050443	y	-14043.162914120741	z	-271429.9804964783
+create vertex x 22078.031687168044	y	-27863.534695552324	z	-269666.801722218
+create vertex x 36496.666922683246	y	-43623.21513954424	z	-265986.85757838417
+create vertex x 47119.679976400614	y	-57018.66890257329	z	-261749.13019053222
+create vertex x 60490.08170979065	y	-64681.15039811671	z	-257179.5069555872
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve1=Id('curve')}
+create vertex x -39790.390035729004	y	30290.210040926308	z	-200868.6835633694
+${pBegin=Id('vertex')}
+create vertex x -30870.35632340522	y	22231.65776050894	z	-203474.2600273693
+create vertex x -23014.142384984978	y	13100.43056303362	z	-205299.11828682234
+create vertex x -14332.45525746658	y	4598.888772682938	z	-206452.00640427088
+create vertex x -1344.5747574538582	y	-2720.5402871066285	z	-206977.75431013777
+create vertex x 8073.918199527357	y	-10687.260011849237	z	-206566.19839254042
+create vertex x 16802.03146780803	y	-21204.969419041652	z	-205224.3674871291
+create vertex x 27775.036959542023	y	-33198.54975693256	z	-202423.82176002025
+create vertex x 35859.46233498134	y	-43392.884054531874	z	-199198.7865788241
+create vertex x 46034.73130120096	y	-49224.25783974323	z	-195721.16889634755
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve2=Id('curve')}	
+create surface skin curve {curve1} {curve2}	
+${surface=Id('surface')}	
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth}
+${volume2=Id('volume')}	
+chop volume 4 with volume 5
+delete curve {curve1} {curve2}	
+merge volume all	
+create vertex x -16323.812661387929	y	52249.0916037023	z	-266434.9180696549
+${pBegin=Id('vertex')}
+create vertex x -842.7568391026323	y	40570.98046576568	z	-268955.9170290858
+create vertex x 10402.041334937388	y	28378.86289184399	z	-270315.4410629035
+create vertex x 26483.720990434806	y	20786.050391205965	z	-269908.41526642867
+create vertex x 41570.87570392702	y	10118.51514964882	z	-268613.9943196833
+create vertex x 58076.32063055088	y	-907.2663902057741	z	-265726.02027222427
+create vertex x 69357.51916501779	y	-7008.391625516459	z	-262915.22774859855
+create vertex x 80374.16292539155	y	-4085.6435085172093	z	-259821.672404678
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve1=Id('curve')}
+create vertex x -12422.90154745331	y	39763.09544840579	z	-202764.808972127
+${pBegin=Id('vertex')}
+create vertex x -641.3627415229589	y	30875.70939857902	z	-204683.36332728216
+create vertex x 7916.259398279554	y	21597.149333131267	z	-205718.0011030184
+create vertex x 20154.89060669119	y	15818.795702131009	z	-205408.24250055413
+create vertex x 31636.659083503277	y	7700.4876322695045	z	-204423.15008887657
+create vertex x 44197.78812692657	y	-690.4564072521881	z	-202225.31689834708
+create vertex x 52783.11201161279	y	-5333.59215618348	z	-200086.22111749958
+create vertex x 61167.10193219134	y	-3109.29487596714	z	-197731.93451385415
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve2=Id('curve')}	
+create surface skin curve {curve1} {curve2}	
+${surface=Id('surface')}	
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth}
+${volume2=Id('volume')}	
+chop volume 7 with volume 8
+delete curve {curve1} {curve2}	
+merge volume all	
+create vertex x 2313.159342007596	y	92018.30636544524	z	-255951.71534391682
+${pBegin=Id('vertex')}
+create vertex x 16505.884722247174	y	76194.64638397499	z	-260587.6659244577
+create vertex x 31941.34474977735	y	59000.42228059686	z	-263595.71443080594
+create vertex x 42685.87220153711	y	44864.39036089508	z	-264856.75900746643
+create vertex x 52614.492431979685	y	35818.55699219449	z	-264448.00275502546
+create vertex x 67508.0912420153	y	26238.89763703143	z	-262179.667151465
+create vertex x 81503.86499375108	y	19597.439315111777	z	-258760.62367247994
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve1=Id('curve')}
+create vertex x 1760.3822933660745	y	70028.63756487926	z	-194786.7833683484
+${pBegin=Id('vertex')}
+create vertex x 12561.463740827809	y	57986.36691721624	z	-198314.87811162768
+create vertex x 24308.302805896725	y	44901.05666207187	z	-200604.0914969736
+create vertex x 32485.204212199194	y	34143.12060553412	z	-201563.7835093586
+create vertex x 40041.176225808056	y	27258.975358030362	z	-201252.7079790083
+create vertex x 51375.642967268985	y	19968.572834064355	z	-199526.43786894577
+create vertex x 62026.83843274437	y	14914.227714074033	z	-196924.44522133577
+${pEnd=Id('vertex')}
+create curve spline vertex {pBegin} to {pEnd} delete
+${curve2=Id('curve')}	
+create surface skin curve {curve1} {curve2}	
+${surface=Id('surface')}	
+sweep surface {surface} vector 0.5 0.5 0.0 distance {FaultWidth}
+${volume2=Id('volume')}	
+chop volume 10 with volume 11
+delete curve {curve1} {curve2}	
+merge volume all	
+{Units('si')} 	
+set tetmesher HPC off	
+Trimesher geometry sizing off	
+surface all scheme trimesh geometry approximation angle 4 minimum size {size*km}	
+volume all scheme tetmesh	
+ volume 13 size {size*km}
+ volume 3 6 9 12 size {FaultWidth*0.5}
+ mesh volume 3 6 9 12
+ mesh surface all
+ mesh volume 13
+volume all size {size*km}	
+mesh surface all	
+mesh volume all	
+nodeset 1 add surface 12	
+nodeset 1 name "Fault_1"	
+		
+nodeset 2 add surface 28	
+nodeset 2 name "Fault_2"	
+		
+nodeset 3 add node all	
+nodeset 3 name "All_nodes"	
+		
+		
+nodeset 4 add surface 14 32 73 49 68	
+nodeset 4 name "Outer_Surf"	
+		
+nodeset 5 add surface 13 31 50 67 74	
+nodeset 5 name "Inner_Surf"	
+		
+		
+nodeset 6 add curve 18 23	
+nodeset 6 name "Fault_1_edge"	
+		
+nodeset 7 add curve 54 58	
+nodeset 7 name "Fault_2_edge"	
+		
+nodeset 8 add curve 94 99	
+nodeset 8 name "Fault_3_edge"	
+		
+nodeset 9 add curve 130 134	
+nodeset 9 name "Fault_4_edge"	
+		
+nodeset 10 add surface 48	
+nodeset 10 name "Fault_3"	
+		
+nodeset 11 add surface 64	
+nodeset 11 name "Fault_4"	
+export mesh "/home/aberne/CUBIT/Coreform-Cubit-2021.11/bin/Basic_Sphere_base.exo"  overwrite	
+export mesh "/home/aberne/CUBIT/Coreform-Cubit-2021.11/bin/Basic_Sphere_Dyn.exo"  overwrite	
+		
+block 13 volume all	
+export mesh "/home/aberne/CUBIT/Coreform-Cubit-2021.11/bin/sizing.exo" dimension 3 block 13 overwrite	

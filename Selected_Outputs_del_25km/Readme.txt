@@ -1,0 +1,1 @@
+# Note that the first column of the vector data in vtk files represents radial displacement (m), displacement in the theta direction (m), and displacement in the phi direction (m) in a spherical coordinate frame.
